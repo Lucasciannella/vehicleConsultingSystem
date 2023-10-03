@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("vehicle/api/v1")
+@RequestMapping("vehicle-api/v1")
 public class VehicleController {
 
     private final FipeProxyService fipeProxyService;
@@ -21,10 +19,10 @@ public class VehicleController {
         this.fipeProxyService = fipeProxyService;
     }
 
-    @GetMapping("fipe-api/vehicle/{vehicleType}/fipe/{fipeCode}/years/{year}")
-    public Vehicle getVehicle(@PathVariable String vehicleType,
-                              @PathVariable String fipeCode,
-                              @PathVariable String year) {
-        return fipeProxyService.getVehicles(vehicleType,fipeCode,year);
+    @GetMapping("/vehicle/{vehicleType}/fipe/{fipeCode}/years/{year}")
+    public Vehicle getVehicleByTypeFipeCodeAndYear(@PathVariable String vehicleType,
+                                                   @PathVariable String fipeCode,
+                                                   @PathVariable String year) {
+        return fipeProxyService.getVehicleByFipeCodeAndYear(vehicleType,fipeCode,year);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface FipeProxyService {
 
     @GetMapping(value = "/fipe/api/v2/{vehicleType}/{fipeCode}/years/{year}")
-    Vehicle getVehicles(@PathVariable String vehicleType,
-                        @PathVariable String fipeCode,
-                        @PathVariable String year);
+    Vehicle getVehicleByFipeCodeAndYear(@PathVariable String vehicleType,
+                                        @PathVariable String fipeCode,
+                                        @PathVariable String year);
 }
