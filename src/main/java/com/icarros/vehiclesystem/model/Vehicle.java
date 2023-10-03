@@ -1,16 +1,14 @@
 package com.icarros.vehiclesystem.model;
 
 public class Vehicle {
-    private String brand;
-    private String model;
-    private String price;
-
+    private final String brand;
+    private final String model;
+    private final String price;
 
     public Vehicle(String brand, String model, String price) {
         this.brand = brand;
         this.model = model;
         this.price = price;
-
     }
 
     public String getBrand() {

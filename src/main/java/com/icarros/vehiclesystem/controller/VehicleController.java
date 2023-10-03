@@ -23,6 +23,6 @@ public class VehicleController {
     public Vehicle getVehicleByTypeFipeCodeAndYear(@PathVariable String vehicleType,
                                                    @PathVariable String fipeCode,
                                                    @PathVariable String year) {
-        return fipeProxyService.getVehicleByFipeCodeAndYear(vehicleType,fipeCode,year);
+        return fipeProxyService.getVehicleByFipeCodeAndYear(vehicleType, fipeCode, year);
     }
 }
