@@ -1,9 +1,12 @@
 package com.icarros.vehiclesystem.model;
 
 public class Vehicle {
-    private final String brand;
-    private final String model;
-    private final String price;
+    private  String brand;
+    private  String model;
+    private  String price;
+
+    public Vehicle() {
+    }
 
     public Vehicle(String brand, String model, String price) {
         this.brand = brand;
