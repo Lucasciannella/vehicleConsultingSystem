@@ -8,3 +8,9 @@ aws:
       region: ${AWS_REGION}
       bucketName: ${AWS_S3_BUCKET_NAME}
       endpoint: ${AWS_ENDPOINT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
