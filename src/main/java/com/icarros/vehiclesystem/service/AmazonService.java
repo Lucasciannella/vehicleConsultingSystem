@@ -13,8 +13,8 @@ import java.util.UUID;
 @Service
 public class AmazonService {
     private final AmazonS3 amazonS3;
-    @Value(value = "${aws.s3.bucketName}")
-    private String bucketName;
+    @Value(value = "${aws.s3.endpoint}")
+    private String endpoint;
 
     @Autowired
     public AmazonService(AmazonS3 amazonS3) {
@@ -24,7 +24,7 @@ public class AmazonService {
     public void uploadJsonToAwsS3(Vehicle vehicle) {
         String json = this.convertVehicleToJson(vehicle);
         String objectKey = generateObjectKey();
-        amazonS3.putObject(bucketName, objectKey, json);
+        amazonS3.putObject(this.endpoint, objectKey, json);
     }
 
     private String convertVehicleToJson(Vehicle vehicle) {
@@ -38,6 +38,7 @@ public class AmazonService {
 
     private String generateObjectKey() {
         String uniqueKey = UUID.randomUUID().toString();
-        return uniqueKey + ".json";
+        String folder = "vehicle-system-response/";
+        return  folder + uniqueKey + ".json";
     }
 }
