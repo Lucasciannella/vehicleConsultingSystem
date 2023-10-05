@@ -11,3 +11,11 @@ spring:
         min-idle: 0
   cache:
     type: redis
+---
+aws:
+    accessKeyId: ${AWS_ACCESS_KEY_ID}
+    secretKey: ${AWS_SECRET_ACCESS_KEY}
+    s3:
+      region: ${AWS_REGION}
+      bucketName: ${AWS_S3_BUCKET_NAME}
+      endpoint: ${AWS_ENDPOINT}
