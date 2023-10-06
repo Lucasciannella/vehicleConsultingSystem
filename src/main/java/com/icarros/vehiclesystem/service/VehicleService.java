@@ -17,8 +17,8 @@ public class VehicleService {
         this.amazonService = amazonService;
     }
 
-    public Vehicle getVehicleByFipeCodeAndYear(String vehicleType, String fipeCode, String year) {
-        Vehicle vehicle = fipeClient.getVehicleByFipeCodeAndYear(vehicleType, fipeCode, year);
+    public Vehicle getCarByFipeCodeAndYear(String fipeCode, String year) {
+        Vehicle vehicle = fipeClient.getCarByFipeCodeAndYear(fipeCode, year);
         amazonService.uploadJsonToAwsS3(vehicle);
         return vehicle;
     }

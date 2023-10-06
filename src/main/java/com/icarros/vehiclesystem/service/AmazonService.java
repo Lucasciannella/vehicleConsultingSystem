@@ -38,7 +38,6 @@ public class AmazonService {
 
     private String generateObjectKey() {
         String uniqueKey = UUID.randomUUID().toString();
-        String folder = "vehicle-system-response/";
-        return  folder + uniqueKey + ".json";
+        return uniqueKey + ".json";
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("vehicle-api/v1")
+@RequestMapping("/vehicle-api/v1")
 @EnableCaching
 public class VehicleController {
 
@@ -21,8 +21,8 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    @GetMapping("/vehicle/{vehicleType}/fipe/{fipeCode}/years/{year}")
-    public Vehicle getVehicleByTypeFipeCodeAndYear(@PathVariable String vehicleType, @PathVariable String fipeCode, @PathVariable String year) {
-        return vehicleService.getVehicleByFipeCodeAndYear(vehicleType, fipeCode, year);
+    @GetMapping("/vehicle/fipe/{fipeCode}/years/{year}")
+    public Vehicle getCarByFipeCodeAndYear(@PathVariable String fipeCode, @PathVariable String year) {
+        return vehicleService.getCarByFipeCodeAndYear(fipeCode, year);
     }
 }

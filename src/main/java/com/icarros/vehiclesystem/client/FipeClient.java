@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 @EnableCaching
 public interface FipeClient {
 
-    @GetMapping(value = "/fipe/api/v2/{vehicleType}/{fipeCode}/years/{year}")
+    @GetMapping(value = "/fipe/api/v2/cars/{fipeCode}/years/{year}")
     @Cacheable(value = "VehicleCache")
-    Vehicle getVehicleByFipeCodeAndYear(@PathVariable String vehicleType,
-                                        @PathVariable String fipeCode,
-                                        @PathVariable String year);
+    Vehicle getCarByFipeCodeAndYear(
+            @PathVariable String fipeCode,
+            @PathVariable String year);
 }
