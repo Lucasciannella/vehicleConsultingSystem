@@ -3,6 +3,7 @@ package com.icarros.vehiclesystem.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.icarros.vehiclesystem.client.FipeClient;
+import com.icarros.vehiclesystem.infra.FileHandler;
 import com.icarros.vehiclesystem.model.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

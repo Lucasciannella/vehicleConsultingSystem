@@ -1,7 +1,8 @@
-package com.icarros.vehiclesystem.service;
+package com.icarros.vehiclesystem.infra;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
+import com.icarros.vehiclesystem.infra.FileHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

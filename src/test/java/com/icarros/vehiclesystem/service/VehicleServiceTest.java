@@ -1,6 +1,7 @@
 package com.icarros.vehiclesystem.service;
 
 import com.icarros.vehiclesystem.client.FipeClient;
+import com.icarros.vehiclesystem.infra.FileHandler;
 import com.icarros.vehiclesystem.model.Vehicle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
