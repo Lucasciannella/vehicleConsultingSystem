@@ -2,15 +2,21 @@ spring:
   profiles:
     active: ${SPRING_ENVIRONMENT:default}
 aws:
-    accessKeyId: ${AWS_ACCESS_KEY_ID}
-    secretKey: ${AWS_SECRET_ACCESS_KEY}
-    s3:
-      region: ${AWS_REGION}
-      bucketName: ${AWS_S3_BUCKET_NAME}
-      endpoint: ${AWS_ENDPOINT}
+  accessKeyId: ${AWS_ACCESS_KEY_ID}
+  secretKey: ${AWS_SECRET_ACCESS_KEY}
+  s3:
+    region: ${AWS_REGION}
+    bucketName: ${AWS_S3_BUCKET_NAME}
+    endpoint: ${AWS_ENDPOINT}
 
 management:
+  server:
+    port: 9000
   endpoints:
     web:
       exposure:
         include: "*"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

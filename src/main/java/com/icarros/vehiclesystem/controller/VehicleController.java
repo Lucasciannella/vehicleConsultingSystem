@@ -4,6 +4,8 @@ import com.icarros.vehiclesystem.model.FipeDto;
 import com.icarros.vehiclesystem.model.Vehicle;
 import com.icarros.vehiclesystem.model.VehicleDto;
 import com.icarros.vehiclesystem.service.VehicleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/vehicle-api/v1")
 @EnableCaching
+@Tag(name = "VehicleControl")
 public class VehicleController {
 
     private final VehicleService vehicleService;
@@ -24,6 +27,7 @@ public class VehicleController {
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
+
 
     @GetMapping("/car/fipe/{fipeCode}/years/{year}")
     public Vehicle getCarByFipeCodeAndYear(@PathVariable String fipeCode, @PathVariable String year) {
