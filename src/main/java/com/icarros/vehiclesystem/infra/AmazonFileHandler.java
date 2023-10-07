@@ -1,7 +1,8 @@
-package com.icarros.vehiclesystem.service;
+package com.icarros.vehiclesystem.infra;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
+import com.icarros.vehiclesystem.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class AmazonFileHandler implements FileHandler {
             amazonS3.putObject(this.endpoint, objectKey, json);
             return true;
         } catch (AmazonS3Exception e) {
-            throw new RuntimeException(e);
+            throw new BadRequestException(e.getMessage());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.icarros.vehiclesystem.service;
+package com.icarros.vehiclesystem.infra;
 
 public interface FileHandler {
     boolean save(String json);
