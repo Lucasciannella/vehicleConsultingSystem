@@ -10,8 +10,6 @@ aws:
     endpoint: ${AWS_ENDPOINT}
 
 management:
-  server:
-    port: 9000
   endpoints:
     web:
       exposure:

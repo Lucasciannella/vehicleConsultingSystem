@@ -25,7 +25,7 @@ public class VehicleService {
         this.objectConversor = objectConversor;
     }
 
-    public Vehicle getCarByFipeCodeAndYear(String fipeCode, String year) {
+    public Vehicle getCar(String fipeCode, String year) {
         var vehicle = fipeClient.getCarByFipeCodeAndYear(fipeCode, year);
         amazonFileHandler.save(objectConversor.objectToJson(vehicle));
         return vehicle;
@@ -37,19 +37,19 @@ public class VehicleService {
         return brands;
     }
 
-    public List<VehicleDto> getCarsModelByBrands(String brandId) {
+    public List<VehicleDto> getCarsModels(String brandId) {
         var models = fipeClient.getCarsModelByBrand(brandId);
         amazonFileHandler.save(objectConversor.listVehicleDtoToJson(models));
         return models;
     }
 
-    public List<VehicleDto> getCarsYearByModel(String brandId, String modelId) {
+    public List<VehicleDto> getCarsYears(String brandId, String modelId) {
         var years = fipeClient.getCarsYearsByModel(brandId, modelId);
         amazonFileHandler.save(objectConversor.listVehicleDtoToJson(years));
         return years;
     }
 
-    public FipeDto getCarFipeInfoBy(String brandId, String modelId, String yearId) {
+    public FipeDto getCarFipeInfo(String brandId, String modelId, String yearId) {
         var fipeInfo = fipeClient.getCarFipeInfo(brandId, modelId, yearId);
         amazonFileHandler.save(objectConversor.objectToJson(fipeInfo));
         return fipeInfo;

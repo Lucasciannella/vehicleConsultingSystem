@@ -33,40 +33,40 @@ class VehicleControllerTest {
     void setUp() {
 
         var vehicle = VehicleBuilder.aVehicle().build();
-        Mockito.when(vehicleService.getCarByFipeCodeAndYear("004278-1", "2005-1")).thenReturn(vehicle);
+        Mockito.when(vehicleService.getCar("004278-1", "2005-1")).thenReturn(vehicle);
     }
 
     @Test
     void testGetCarByFipeCodeAndYear() throws Exception {
-        mockMvc.perform(get("/vehicle-api/v1/vehicle/fipe/004278-1/years/2005-1"))
+        mockMvc.perform(get("/vehicle-api/v1/car/fipe/006004-6/years/1997-1"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     void testGetCarsBrands() throws Exception {
-        mockMvc.perform(get("/cars/brands"))
+        mockMvc.perform(get("/vehicle-api/v1/cars/brands"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     void testGetCarsModelByBrand() throws Exception {
-        mockMvc.perform(get("/cars/brands/{brandId}/models"))
+        mockMvc.perform(get("/vehicle-api/v1/cars/brands/3/models"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     void testGetCarYearsByModel() throws Exception {
-        mockMvc.perform(get("/car/brand/{brandId}/model/{modelId}/years"))
+        mockMvc.perform(get("/vehicle-api/v1/car/brand/3/model/11/years"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     void testGetCarFipeInfoBy() throws Exception {
-        mockMvc.perform(get("/car/brands/{brandId}/models/{modelId}/years/{yearId}"))
+        mockMvc.perform(get("/vehicle-api/v1/car/brands/3/models/11/years/1997-1"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }

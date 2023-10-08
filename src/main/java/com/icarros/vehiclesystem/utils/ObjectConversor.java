@@ -21,12 +21,12 @@ public class ObjectConversor {
         }
     }
 
-    public String listVehicleDtoToJson(List<VehicleDto> vehicleDtos) {
+    public String listVehicleDtoToJson(List<?> objects) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             List<String> jsonList = new ArrayList<>();
-            for (var vehicle : vehicleDtos) {
-                String json = objectMapper.writeValueAsString(vehicle);
+            for (var object : objects) {
+                String json = objectMapper.writeValueAsString(object);
                 jsonList.add(json);
             }
             return "[" + String.join(",", jsonList) + "]";

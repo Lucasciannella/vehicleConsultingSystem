@@ -4,7 +4,6 @@ import com.icarros.vehiclesystem.model.FipeDto;
 import com.icarros.vehiclesystem.model.Vehicle;
 import com.icarros.vehiclesystem.model.VehicleDto;
 import com.icarros.vehiclesystem.service.VehicleService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
@@ -30,27 +29,27 @@ public class VehicleController {
 
 
     @GetMapping("/car/fipe/{fipeCode}/years/{year}")
-    public Vehicle getCarByFipeCodeAndYear(@PathVariable String fipeCode, @PathVariable String year) {
-        return vehicleService.getCarByFipeCodeAndYear(fipeCode, year);
+    public Vehicle getCar(@PathVariable String fipeCode, @PathVariable String year) {
+        return vehicleService.getCar(fipeCode, year);
     }
 
     @GetMapping("/cars/brands")
-    public List<VehicleDto> getCarsBrands() {
+    public List<VehicleDto> getCarBrands() {
         return vehicleService.getCarsBrands();
     }
 
     @GetMapping("/cars/brands/{brandId}/models")
-    public List<VehicleDto> getCarsModelByBrands(@PathVariable String brandId) {
-        return vehicleService.getCarsModelByBrands(brandId);
+    public List<VehicleDto> getCarModels(@PathVariable String brandId) {
+        return vehicleService.getCarsModels(brandId);
     }
 
     @GetMapping("/car/brand/{brandId}/model/{modelId}/years")
-    public List<VehicleDto> getCarsBrands(@PathVariable String brandId, @PathVariable String modelId) {
-        return vehicleService.getCarsYearByModel(brandId, modelId);
+    public List<VehicleDto> getCarBrands(@PathVariable String brandId, @PathVariable String modelId) {
+        return vehicleService.getCarsYears(brandId, modelId);
     }
 
     @GetMapping("/car/brands/{brandId}/models/{modelId}/years/{yearId}")
-    public FipeDto getCarFipeInfoBy(@PathVariable String brandId, @PathVariable String modelId, @PathVariable String yearId) {
-        return vehicleService.getCarFipeInfoBy(brandId, modelId, yearId);
+    public FipeDto getCarFipeInfo(@PathVariable String brandId, @PathVariable String modelId, @PathVariable String yearId) {
+        return vehicleService.getCarFipeInfo(brandId, modelId, yearId);
     }
 }

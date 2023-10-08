@@ -3,7 +3,6 @@ package com.icarros.vehiclesystem.service;
 import com.icarros.vehiclesystem.builders.VehicleBuilder;
 import com.icarros.vehiclesystem.client.FipeClient;
 import com.icarros.vehiclesystem.infra.FileHandler;
-import com.icarros.vehiclesystem.model.Vehicle;
 import com.icarros.vehiclesystem.utils.ObjectConversor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,14 +30,14 @@ class VehicleServiceTest {
 
     @Test
     void must_call_the_method_from_feing_once() {
-        this.vehicleService.getCarByFipeCodeAndYear(Mockito.any(), Mockito.any());
+        this.vehicleService.getCar(Mockito.any(), Mockito.any());
 
         Mockito.verify(fipeClient, Mockito.times(1)).getCarByFipeCodeAndYear(Mockito.any(), Mockito.any());
     }
 
     @Test
     void must_call_the_method_from_amazon_once() {
-        this.vehicleService.getCarByFipeCodeAndYear(Mockito.any(), Mockito.any());
+        this.vehicleService.getCar(Mockito.any(), Mockito.any());
 
         Mockito.verify(amazonFileHandler, Mockito.times(1)).save(Mockito.any());
     }
