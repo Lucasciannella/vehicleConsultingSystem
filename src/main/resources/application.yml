@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: ${SPRING_ENVIRONMENT:default}
+    active: ${SPRING_ENVIRONMENT:dev}
 aws:
   accessKeyId: ${AWS_ACCESS_KEY_ID}
   secretKey: ${AWS_SECRET_ACCESS_KEY}
@@ -13,7 +13,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: info,health,metrics
+        include: "*"
 
 springdoc:
   swagger-ui:

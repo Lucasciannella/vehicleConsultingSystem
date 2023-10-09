@@ -1,7 +1,26 @@
 version: '3'
 services:
-  redis:
+  cache:
     image: redis:latest
+    command: [ "redis-server", "--protected-mode", "no" ]
     container_name: redis
     ports:
       - "6379:6379"
+    expose:
+      - 6379
+  vehicle-api:
+    build: .
+    container_name: vehicle_api
+    image: lucasciannela/vehicle-api
+    restart: always
+    links:
+      - cache
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_ENVIRONMENT=prod
+      - AWS_ACCESS_KEY_ID=AKIASYGA55FBX6CTRLOI
+      - AWS_SECRET_ACCESS_KEY=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
+      - AWS_REGION=us-east-2
+      - AWS_S3_BUCKET_NAME=s3-audit-83307
+      - AWS_ENDPOINT=https://icarros-audit-83307.s3.us-east-2.amazonaws.com/
