@@ -1,8 +1,8 @@
-# Vehicle system Api
+## Vehicle system Api 🚀
 
 > Sistema de consulta veicular da tabela fipe
 
-### Tecnologias:
+### Tecnologias 💻:
 
 Foram utilizadas no desenolvimento dessa api:
 
@@ -12,7 +12,7 @@ Foram utilizadas no desenolvimento dessa api:
 - AWS S3
 - Redis
 
-### instruções / inicialização:
+### instruções / inicialização 📃:
 
 É necessário configurar suas credencias da AWS de antemão no arquivo **docker-compose.yml**.
 como podem acompanhar no exemplo abaixo:
@@ -85,9 +85,21 @@ você podera utilizar o a instrução:
   docker-compose up  
 ````
 
-OBS: é de extrema importancia que você tenha o docker instalado em seu SO para o funcionamento correto da aplicação.
+OBS: é de extrema importância que você tenha o docker instalado em seu SO para o funcionamento correto da aplicação.
 
-### Sugestões e considerações finais:
+### Observabilidade🔎:
+
+Podemos verificar metricas da aplicação utilizando dos caminhos que o spring actuator nos fornece.
+
+- Para vizualizar o health check do servidor:
+    - ***localhost:8080/actuator/health***
+- Para vizualizar as possíveis metricas:
+    - ***localhost:8080/actuator/metrics***
+- Para vizualizar as informações da aplicação:
+    - ***localhost:8080/actuator/info***
+
+### Sugestões e considerações finais📗:
 
 - Ecalabilidade:
-    - Se necessário é possível utilizar o serviço elasticache da amazon com o redis.
+    -  é possível utilizar o serviço elasticache da amazon com o redis.
+    -  é possível transfomar a classe **vehicle** em um mapeamento de entidade, relacional ou não, dependendo da necessidade.
