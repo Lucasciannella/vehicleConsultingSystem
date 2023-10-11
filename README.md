@@ -100,6 +100,6 @@ Podemos verificar metricas da aplicação utilizando dos caminhos que o spring a
 
 ### Sugestões e considerações finais📗:
 
-- Ecalabilidade:
+- Escalabilidade:
     -  é possível utilizar o serviço elasticache da amazon com o redis.
     -  é possível transfomar a classe **vehicle** em um mapeamento de entidade, relacional ou não, dependendo da necessidade.
